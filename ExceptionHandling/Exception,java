@@ -1,0 +1,269 @@
+import java.io.*;
+import java.util.*;
+
+// public class Main
+// {
+// 	public static void main(String[] args) {
+// 	 int arr[] = {1,2,0,4,5};
+// 	try{
+// 	   // int result = arr[1]/arr[2];
+// 	   // System.out.println(result);
+// 	    System.out.println(arr[10]);
+// 	}
+// 	catch(ArithmeticException e)
+// 	{
+// 	   System.out.println(e);
+// 	}
+// 	catch(ArrayIndexOutOfBoundsException e)
+// 	{
+// 	    System.out.println(e);
+// 	}
+// 	}
+// }
+
+
+//   nested try and catch Method // 
+
+
+// public class Main{
+    
+//     public static void main(String args[])
+//     {
+//         try{
+//             int arr[]= {1,2,3,4,5,0};
+//             try{
+//                 int result = arr[1]/arr[arr.length-1];
+//                 System.out.println("The dividion is :"+result);
+//             }
+//             catch(ArithmeticException e)
+//             {
+//                 System.out.println("Error: -->"+e);
+//             }
+        
+//                 System.out.println(arr[10]);
+//         }
+//         catch(ArrayIndexOutOfBoundsException e)
+//         {
+            
+//                 System.out.println("Error: -->"+e);
+            
+//         }
+//     }
+// }
+
+
+// unchecked Exception
+
+// public class Main{
+//     void fun1()
+//     {
+//         try{
+//         int c = 10/0;
+//         System.out.println("The result is " + c);
+//         }
+//         catch(Exception e)
+//         {
+//             System.out.println(e.getMessage());
+//             e.printStackTrace();
+//         }
+        
+//     }
+//     void fun2()
+//     {
+//       fun1();  
+//     }
+//     void fun3()
+//     {
+//       fun2();  
+//     }
+//     public static void main(String args[])
+//     {
+//         Main mn = new Main();
+//         mn.fun3();
+        
+//     }
+// }
+
+
+
+                // checked Error 
+// class lowBalanceException extends Exception{
+//     public String toString()
+//     {
+//         return "Balance should not be less than 5000";
+//     }
+// }
+// public class Main{
+//     void fun1()
+//     {
+//     //   FileInputStream  fi = new FileInputStream("my.txt");
+//     try{
+//         throw new lowBalanceException();
+//     }
+//     catch (lowBalanceException e)
+//     {
+//         System.out.println(e);
+//     }
+//     }
+//     void fun2()
+//     {
+//       fun1();  
+//     }
+//     void fun3()
+//     {
+//       fun2();  
+//     }
+//     public static void main(String args[])
+//     {
+//         Main mn =new Main();
+//         mn.fun3();
+        
+        
+//     }
+// }
+
+
+//  throw vs throws  
+//  How an exception is propogated 
+//  handle user BasedErrors
+
+// class negativeException extends Exception{
+//     public String toString()
+//     {
+//         return "length or breadth can not be negative";
+//     }
+// }
+
+// public class Main{
+    
+//     int Area(int length,int breadth) throws negativeException
+//     {
+//         if(length<0 || breadth<0)
+//         {
+//             // throw new Exception("length or breadth can not be negative");
+//             throw new negativeException();
+//         }
+        
+//         int res = length/breadth;
+        
+//         return res;
+        
+//     }
+    
+//     void calculation()
+//     {
+//         int length=10;
+//         int breadth=-10;
+//         try{
+//         int result= Area(length,breadth);
+//             System.out.println(result);
+//         }
+//         catch(negativeException e)
+//         {
+//             System.out.println(e);
+//         }
+        
+        
+//     }
+    
+//     public static void main(String args[])
+//     {
+      
+//       new Main().calculation();
+//     }
+// }
+
+// usage of finally //
+
+// public class Main{
+//     public static void main(String args[])
+//     {
+//         try{
+//             System.out.println(10/0);
+            
+            
+//         }
+//         catch(Exception e)
+//         {
+//             System.out.println(e);
+            
+//         }
+//         finally{
+//             System.out.println("this is final block");
+//             // if we are not using catch block then we need to use finally to close the resources or want something to execite compulsarily //
+            
+//         }
+//     }
+// }
+
+
+// try with resources
+// public class Main{
+//     static FileInputStream fi;
+//     static Scanner sc ;
+    
+//      static void display() throws Exception
+//     {
+//         try{
+//             fi = new FileInputStream("text.txt");
+//         sc = new Scanner(fi);
+//         int a=sc.nextInt();
+//         int b=sc.nextInt();
+//         int c=sc.nextInt();
+//         System.out.println(a/c);
+//         }
+//         finally{
+//         fi.close();
+//         sc.close();
+//         }
+//     }
+//     public static void main(String args[]) throws Exception
+//     {
+//         try{
+//         display();
+//         }
+//         catch(Exception e)
+//         {
+//             System.out.println(e);
+//         }
+//         // int a = sc.nextInt();
+//         // System.out.println(a);
+      
+//     }
+// }
+
+
+
+// try with resources
+// public class Main{
+   
+    
+//     static void display() throws Exception
+//    {
+//        try( FileInputStream fi = new FileInputStream("text.txt");Scanner sc = new Scanner(fi);){
+         
+//        int a=sc.nextInt();
+//        int b=sc.nextInt();
+//        int c=sc.nextInt();
+//        System.out.println(a/c);
+//        }
+       
+//    }
+//    public static void main(String args[]) throws Exception
+//    {
+//       try{
+//       display();
+//       }
+//       catch(Exception e)
+//       {
+//          System.out.println(e);
+//       }
+     
+//    }
+// }
+
+
+
+
+
+

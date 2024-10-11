@@ -1,0 +1,10 @@
+ import java.lang.*;
+
+class RangeOfNumber{
+ public static void main(String args[])
+{
+	System.out.print(" The range of the number is : ");
+	System.out.println(Integer.MIN_VALUE);
+	
+}
+}
